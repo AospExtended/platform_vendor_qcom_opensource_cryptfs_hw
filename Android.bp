@@ -16,21 +16,8 @@ cc_library_shared {
     srcs: sourceFiles,
     shared_libs: commonSharedLibraries,
 
-    product_variables: {
-        aosp: {
-            should_skip_waiting_for_qsee: {
-                cflags: ["-DSKIP_WAITING_FOR_QSEE"],
-            },
-            device_support_legacy_hwfde: {
-                cflags: ["-DLEGACY_HW_DISK_ENCRYPTION"],
-            },
-            uses_metadata_as_fde_key: {
-                cflags: ["-DUSE_METADATA_FOR_KEY"],
-            },
-        },
-    },
-
     owner: "qti",
+    product_specific: true,
 }
 
 cc_library_headers {
